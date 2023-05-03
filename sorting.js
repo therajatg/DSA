@@ -100,6 +100,34 @@ function mergeSort(arr) {
   return merge(mergeSort(left), mergeSort(right));
 }
 
+function swap(arr, firstIndex, secondIndex) {
+  let temp = arr[firstIndex];
+  arr[firstIndex] = arr[secondIndex];
+  arr[secondIndex] = temp;
+}
+
+//initially even if don't pass pivotIndex or the endIndex we do not have to worry as in starting they'll be 0 and arr.length-1 repectively. The reason we wrote this because we have to run quickSort on sub sections of the array and therefore we need pivotIndex and endIndex for the sub sections.
+function pivot(arr, pivotIndex = 0, endIndex = arr.length - 1) {
+  let swapIndex = pivotIndex;
+  for (let i = pivotIndex + 1; i <= endIndex; i++) {
+    if (arr[i] < arr[pivotIndex]) {
+      swapIndex++;
+      swap(arr, swapIndex, i);
+    }
+  }
+  swap(arr, pivotIndex, swapIndex);
+  return swapIndex;
+}
+
+function quickSort(arr, leftIndex = 0, rightIndex = arr.length - 1) {
+  if (leftIndex < rightIndex) {
+    let pivotIndex = pivot(arr, leftIndex, rightIndex);
+    quickSort(arr, leftIndex, pivotIndex - 1);
+    quickSort(arr, pivotIndex + 1, rightIndex);
+  }
+  return arr;
+}
+
 //later replace the desc
-console.log(mergeSort([23, 54, 1, 2, 78, 44, 33, 55, 66, 21]));
+console.log(quickSort([23, 54, 1, 2, 78, 44, 33, 55, 66, 21]));
 // console.log(insertionSort([4, 2, 6, 5, 1, 3]));
