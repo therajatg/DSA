@@ -105,6 +105,22 @@ class BST {
     traverse(this.root);
     return results;
   }
+
+  DFSInOrderAnotherWay() {
+    let stack = [];
+    let result = [];
+    while (this.root || stack.length) {
+      if (this.root) {
+        stack.push(this.root);
+        this.root = this.root.left;
+      } else {
+        this.root = stack.pop();
+        result.push(this.root.value);
+        this.root = this.root.right;
+      }
+    }
+    return result;
+  }
 }
 
 let myBst = new BST();
@@ -118,6 +134,5 @@ myBst.insert(47);
 myBst.insert(53);
 myBst.insert(57);
 
-console.log(myBst);
-
-console.log(myBst.DFSPreOrder());
+console.log(myBst.DFSInOrder());
+console.log(myBst.DFSInOrderAnotherWay());
