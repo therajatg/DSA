@@ -15,3 +15,68 @@
 // Constraints:
 
 // s and t consist of lowercase English letters.
+
+function isValidAnagram(s, t) {
+  return s.split("").sort().join("") === t.split("").sort().join("");
+}
+
+//time complexity: n, nlogn, n, n logn, n,n = 0(nlogn)
+
+//rajat
+//tazar
+
+function isValidAnagramOne(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  const countOne = {};
+  const countTwo = {};
+
+  for (let letter of s) {
+    if (countOne[letter]) {
+      countOne[letter] = countOne[letter] + 1;
+    } else {
+      countOne[letter] = 1;
+    }
+  }
+
+  for (let letter of t) {
+    if (countTwo[letter]) {
+      countTwo[letter] = countTwo[letter] + 1;
+    } else {
+      countTwo[letter] = 1;
+    }
+  }
+
+  for (let letter of Object.keys(countOne)) {
+    if (countOne[letter] !== countTwo[letter]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+//final
+function isValidAnagramFinal(s, t) {
+  if (s.length !== t.length) {
+    return false;
+  }
+
+  const count = {};
+
+  for (let i = 0; i < s.length; i++) {
+    count[s[i]] = (count[s[i]] || 0) + 1;
+    count[t[i]] = (count[t[i]] || 0) - 1;
+  }
+
+  for (let letter of Object.keys(countOne)) {
+    if (count[letter] !== 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+//time complexity: 0(n)
+//space complexity: 1
