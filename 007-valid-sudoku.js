@@ -61,6 +61,49 @@ function isSudokuValid(board) {
       }
     }
 
+    //     if (i === 0) {
+    //       startRow = 0;
+    //       startCol = 0;
+    //     }
+
+    //     if (i === 1) {
+    //       startRow = 0;
+    //       startCol = 3;
+    //     }
+
+    //     if (i === 2) {
+    //       startRow = 0;
+    //       startCol = 6;
+    //     }
+
+    //     if (i === 3) {
+    //       startRow = 3;
+    //       startCol = 0;
+    //     }
+    //     if (i === 4) {
+    //       startRow = 3;
+    //       startCol = 3;
+    //     }
+
+    //     if (i === 5) {
+    //       startRow = 3;
+    //       startCol = 6;
+    //     }
+
+    //     if (i === 6) {
+    //       startRow = 6;
+    //       startCol = 0;
+    //     }
+
+    //     if (i === 7) {
+    //       startRow = 6;
+    //       n = 3;
+    //     }
+
+    //     if (i === 8) {
+    //       startRow = 6;
+    //       startCol = 6;
+    //     }
     const startRow = Math.floor(i / 3) * 3;
     const startCol = (i % 3) * 3;
 
