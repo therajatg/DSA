@@ -31,7 +31,7 @@ function twoSum(nums, target) {
   return null;
 }
 
-// 0(n)
-// 0(1)
+// time complexity: 0(n)
+// space complexity: 0(1)
 
 // console.log(twoSum([1, 2, 3, 4], 3));
