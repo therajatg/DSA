@@ -27,15 +27,15 @@ class Deque {
   popBack() {
     if (this.isEmpty()) return undefined;
     this.backIndex--;
-    const item = items[this.backIndex];
-    delete items[this.backIndex];
+    const item = this.items[this.backIndex];
+    delete this.items[this.backIndex];
     return item;
   }
 
   popFront() {
     if (this.isEmpty()) return undefined;
-    const item = items[this.frontIndex];
-    delete items[this.frontIndex];
+    const item = this.items[this.frontIndex];
+    delete this.items[this.frontIndex];
     this.frontIndex++;
     return item;
   }
@@ -66,8 +66,8 @@ class Deque {
 
   toArray() {
     const arr = [];
-    for (let item in items) {
-      arr.push(items[item]);
+    for (let item in this.items) {
+      arr.push(this.items[item]);
     }
     return arr;
   }
